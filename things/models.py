@@ -7,4 +7,4 @@ class Thing(models.Model):
 
     description = models.CharField(max_length = 120, blank = False)
 
-    quantity = models.IntegerField(MaxValueValidator(100), MinValueValidator(0), blank = False)
+    quantity = models.IntegerField(validators = [MaxValueValidator(100), MinValueValidator(0)], blank = False)
