@@ -1,7 +1,6 @@
 from django.db import models
-from django.db.models.Model import Model
 
-class Things(Model):
+class Things(models.Model):
     name = models.CharField()
 
     description = models.TextField()
