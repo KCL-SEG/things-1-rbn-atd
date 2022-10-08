@@ -1,8 +1,10 @@
+from enum import unique
 from django.db import models
+from django.core.validators import MaxValueValidator, MinValueValidator
 
-class Things(models.Model):
-    name = models.CharField()
+class Thing(models.Model):
+    name = models.CharField(max_length = 30, unique = True, blank = False)
 
-    description = models.TextField()
+    description = models.CharField(max_length = 120, blank = False)
 
-    quantity = models.IntegerField()
+    quantity = models.IntegerField(MaxValueValidator(100), MinValueValidator(0), blank = False)
